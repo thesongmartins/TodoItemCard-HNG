@@ -16,17 +16,10 @@ yarn-error.log*
 pnpm-debug.log*
 .pnpm-store/
 
-# Lock files (keep one; ignore the rest)
-# Uncomment the line for whichever lock file you are NOT using:
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
 
-# TypeScript build artifacts
-dist/
-*.js.map
-*.d.ts
-*.tsbuildinfo
+dist/*.map
+dist/*.d.ts
+dist/*.tsbuildinfo
 
 # Editor & IDE
 .vscode/
