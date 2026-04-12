@@ -1,0 +1,13 @@
+{
+  "name": "todo-item-card",
+  "version": "1.0.0",
+  "description": "Testable Todo Item Card - HNG",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "tsc && open index.html"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

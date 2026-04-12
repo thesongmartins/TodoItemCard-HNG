@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A clean, accessible and testable Todo Task Card component built with vanilla TypeScript."
+    />
+    <title>Todo Item Card | Task Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <!-- PAGE WRAPPER  -->
+    <main class="page-wrapper">
+      <!-- Page header -->
+      <header class="page-header">
+        <h1 class="page-title">Todo Item Card</h1>
+        <p class="page-subtitle">A testable, accessible task card component</p>
+      </header>
+
+      <!-- TODO CARD -->
+      <article
+        class="todo-card"
+        data-testid="test-todo-card"
+        aria-label="Todo task card"
+      >
+        <!-- accent bar -->
+        <div class="card-accent-bar" aria-hidden="true"></div>
+
+        <!-- Card inner content -->
+        <div class="card-inner">
+          <!-- Row 1: Badges (left) + Checkbox (right) -->
+          <div class="card-header-row">
+            <div class="badges-row">
+              <span
+                class="badge badge-priority badge-medium"
+                data-testid="test-todo-priority"
+                role="img"
+                aria-label="Priority: Medium"
+              >
+                <span class="badge-dot" aria-hidden="true"></span>
+                MEDIUM
+              </span>
+
+              <span
+                class="badge badge-status badge-in-progress"
+                data-testid="test-todo-status"
+                role="status"
+                aria-label="Status: In Progress"
+                aria-live="polite"
+              >
+                <span class="status-pulse" aria-hidden="true"></span>
+                IN PROGRESS
+              </span>
+            </div>
+
+            <!-- Checkbox positioned top-right -->
+            <div class="checkbox-wrapper">
+              <input
+                type="checkbox"
+                id="todo-complete"
+                class="todo-checkbox"
+                data-testid="test-todo-complete-toggle"
+                aria-label="Mark task as complete"
+              />
+              <label for="todo-complete" class="checkbox-label">
+                <svg
+                  class="checkmark-icon"
+                  viewBox="0 0 12 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M1 5L4.5 8.5L11 1"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </label>
+            </div>
+          </div>
+
+          <!-- Row 2: Title -->
+          <h2 class="task-title" data-testid="test-todo-title">
+            Launch Q2 Marketing Campaign
+          </h2>
+
+          <!-- Row 3: Description -->
+          <p class="task-description" data-testid="test-todo-description">
+            Coordinate with the design team to finalise all creatives, get
+            stakeholder sign-off on the copy, and schedule the email drip
+            sequence before the campaign goes live.
+          </p>
+
+          <!-- Divider -->
+          <div class="card-divider" aria-hidden="true"></div>
+
+          <!-- Row 4: Date + Time remaining (inset panel) -->
+          <div class="meta-panel">
+            <div class="meta-item">
+              <span class="meta-label" aria-hidden="true">Due date</span>
+              <time
+                class="due-date"
+                data-testid="test-todo-due-date"
+                datetime="2026-05-09T09:00:00Z"
+                aria-label="Due date: May 9, 2026"
+              >
+                <!-- calendar icon -->
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <rect
+                    x="3"
+                    y="4"
+                    width="18"
+                    height="18"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M16 2v4M8 2v4M3 10h18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                May 9, 2026
+              </time>
+            </div>
+
+            <div class="meta-divider" aria-hidden="true"></div>
+
+            <div class="meta-item">
+              <span class="meta-label" aria-hidden="true">Time left</span>
+              <div
+                class="time-remaining-wrapper"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                <time
+                  class="time-remaining"
+                  data-testid="test-todo-time-remaining"
+                  id="time-remaining"
+                  datetime="2026-05-09T09:00:00Z"
+                  aria-label="Time remaining until due date"
+                >
+                  <!-- clock icon -->
+                  <svg
+                    class="clock-icon"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="9"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M12 7v5l3 3"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  <span class="time-text">Calculating…</span>
+                </time>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5: Tags -->
+          <ul
+            class="tags-list"
+            data-testid="test-todo-tags"
+            role="list"
+            aria-label="Task tags"
+          >
+            <li class="tag" data-testid="test-todo-tag-work" role="listitem">
+              # strategy
+            </li>
+            <li class="tag" data-testid="test-todo-tag-urgent" role="listitem">
+              # q2
+            </li>
+            <li class="tag" data-testid="test-todo-tag-emails" role="listitem">
+              # launch
+            </li>
+          </ul>
+
+          <!-- Row 6: Action Buttons -->
+          <div class="card-actions">
+            <button
+              class="action-btn btn-edit"
+              data-testid="test-todo-edit-button"
+              aria-label="Edit task"
+              type="button"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Edit
+            </button>
+
+            <button
+              class="action-btn btn-delete"
+              data-testid="test-todo-delete-button"
+              aria-label="Delete task"
+              type="button"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M10 11v6M14 11v6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Delete
+            </button>
+          </div>
+        </div>
+        <!-- /card-inner -->
+      </article>
+
+      <!-- Page footer -->
+      <footer class="page-footer">
+        <span class="footer-dot" aria-hidden="true"></span>
+        Built by
+        <a
+          class="footer-link"
+          href="https://github.com/thesongmartins"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View Song's GitHub profile"
+          >Song Martins</a
+        >
+        <span class="footer-dot" aria-hidden="true"></span>
+        HNG Internship
+      </footer>
+    </main>
+    <!-- /page-wrapper -->
+
+    <!-- EDIT MODAL -->
+    <div
+      class="modal-overlay"
+      id="edit-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="edit-modal-title"
+      hidden
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="modal-icon" aria-hidden="true">✏️</span>
+            <h3 id="edit-modal-title" class="modal-title">Edit Task</h3>
+          </div>
+          <button
+            class="modal-close"
+            id="edit-modal-close"
+            aria-label="Close edit modal"
+            type="button"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M18 6 6 18M6 6l12 12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="edit-title" class="form-label">Title</label>
+            <input
+              type="text"
+              id="edit-title"
+              class="form-input"
+              value="Launch Q2 Marketing Campaign"
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="edit-description" class="form-label">Description</label>
+            <textarea
+              id="edit-description"
+              class="form-textarea"
+              rows="3"
+              aria-required="true"
+            >
+Coordinate with the design team to finalise all creatives, get stakeholder sign-off on the copy, and schedule the email drip sequence before the campaign goes live.</textarea
+            >
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="edit-priority" class="form-label">Priority</label>
+              <select id="edit-priority" class="form-select">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="edit-status" class="form-label">Status</label>
+              <select id="edit-status" class="form-select">
+                <option value="pending">Pending</option>
+                <option value="in-progress" selected>In Progress</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            class="modal-btn modal-btn-cancel"
+            id="edit-cancel"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button class="modal-btn modal-btn-save" id="edit-save" type="button">
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div
+      class="modal-overlay"
+      id="delete-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="delete-modal-title"
+      hidden
+    >
+      <div class="modal modal-sm">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <span class="modal-icon modal-icon-danger" aria-hidden="true"
+              >🗑️</span
+            >
+            <h3 id="delete-modal-title" class="modal-title">Delete Task</h3>
+          </div>
+          <button
+            class="modal-close"
+            id="delete-modal-close"
+            aria-label="Close delete confirmation"
+            type="button"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M18 6 6 18M6 6l12 12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p class="delete-message" id="delete-message">
+            Are you sure you want to delete
+            <strong id="delete-task-name">"Launch Q2 Marketing Campaign"</strong
+            >? This action cannot be undone.
+          </p>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            class="modal-btn modal-btn-cancel"
+            id="delete-cancel"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="modal-btn modal-btn-danger"
+            id="delete-confirm"
+            type="button"
+          >
+            Delete task
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="dist/main.js"></script>
+  </body>
+</html>
