@@ -1,8 +1,4 @@
-/* ═══════════════════════════════════════════════════════════════════
-   TODO ITEM CARD — Luxurious Emerald Green Design
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* ── Reset ─────────────────────────────────────────────────────── */
+/*  Reset  */
 *,
 *::before,
 *::after {
@@ -11,12 +7,12 @@
   padding: 0;
 }
 
-/* ── Design Tokens ──────────────────────────────────────────────── */
+/*  Design Tokens  */
 :root {
   --font: "Inter", system-ui, -apple-system, sans-serif;
 
   /* Luxury emerald palette */
-  --emerald-50:  #ecfdf5;
+  --emerald-50: #ecfdf5;
   --emerald-100: #d1fae5;
   --emerald-200: #a7f3d0;
   --emerald-300: #6ee7b7;
@@ -29,76 +25,88 @@
   --emerald-950: #022c22;
 
   /* Backgrounds */
-  --bg:          #030d08;   /* near-black with green tint */
-  --card-bg:     #071210;   /* deep forest card */
-  --card-border: #0f3320;   /* dark emerald border */
-  --card-glow:   rgba(16, 185, 129, 0.10);
+  --bg: #030d08;
+  --card-bg: #071210;
+  --card-border: #0f3320;
+  --card-glow: rgba(16, 185, 129, 0.1);
 
   /* Inset panel (date/time zone) */
-  --panel-bg:    #050e09;
-  --panel-border:#0d2a18;
+  --panel-bg: #050e09;
+  --panel-border: #0d2a18;
 
   /* Text */
-  --txt-primary:   #f0fdf4;
-  --txt-secondary: #a7f3d0;   /* light emerald */
-  --txt-muted:     #4d7a62;   /* muted green */
+  --txt-primary: #f0fdf4;
+  --txt-secondary: #a7f3d0;
+  --txt-muted: #4d7a62;
 
   /* Accent gradient */
-  --grad-emerald: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
-  --grad-bar:     linear-gradient(90deg, #047857, #10b981, #34d399, #10b981, #047857);
+  --grad-emerald: linear-gradient(
+    135deg,
+    #059669 0%,
+    #10b981 50%,
+    #34d399 100%
+  );
+  --grad-bar: linear-gradient(
+    90deg,
+    #047857,
+    #10b981,
+    #34d399,
+    #10b981,
+    #047857
+  );
 
   /* Priority (semantic, unchanged) */
-  --high-color:   #ef4444;
-  --high-bg:      rgba(239, 68, 68, 0.10);
-  --high-border:  rgba(239, 68, 68, 0.22);
+  --high-color: #ef4444;
+  --high-bg: rgba(239, 68, 68, 0.1);
+  --high-border: rgba(239, 68, 68, 0.22);
   --medium-color: #f59e0b;
-  --medium-bg:    rgba(245, 158, 11, 0.10);
-  --medium-border:rgba(245, 158, 11, 0.22);
-  --low-color:    var(--emerald-400);
-  --low-bg:       rgba(52, 211, 153, 0.10);
-  --low-border:   rgba(52, 211, 153, 0.25);
+  --medium-bg: rgba(245, 158, 11, 0.1);
+  --medium-border: rgba(245, 158, 11, 0.22);
+  --low-color: var(--emerald-400);
+  --low-bg: rgba(52, 211, 153, 0.1);
+  --low-border: rgba(52, 211, 153, 0.25);
 
   /* Status */
-  --inprogress-color:  var(--emerald-400);
-  --inprogress-bg:     rgba(52, 211, 153, 0.08);
+  --inprogress-color: var(--emerald-400);
+  --inprogress-bg: rgba(52, 211, 153, 0.08);
   --inprogress-border: rgba(52, 211, 153, 0.28);
-  --done-color:        var(--emerald-500);
-  --done-bg:           rgba(16, 185, 129, 0.08);
-  --done-border:       rgba(16, 185, 129, 0.28);
-  --pending-color:     var(--txt-muted);
-  --pending-bg:        rgba(77, 122, 98, 0.08);
-  --pending-border:    rgba(77, 122, 98, 0.22);
+  --done-color: var(--emerald-500);
+  --done-bg: rgba(16, 185, 129, 0.08);
+  --done-border: rgba(16, 185, 129, 0.28);
+  --pending-color: var(--txt-muted);
+  --pending-bg: rgba(77, 122, 98, 0.08);
+  --pending-border: rgba(77, 122, 98, 0.22);
 
   /* Time remaining */
-  --time-color:  var(--emerald-400);
-  --time-bg:     rgba(52, 211, 153, 0.07);
+  --time-color: var(--emerald-400);
+  --time-bg: rgba(52, 211, 153, 0.07);
 
   /* Tags */
-  --tag-bg:      rgba(16, 185, 129, 0.06);
-  --tag-border:  rgba(16, 185, 129, 0.18);
-  --tag-color:   var(--emerald-300);
+  --tag-bg: rgba(16, 185, 129, 0.06);
+  --tag-border: rgba(16, 185, 129, 0.18);
+  --tag-color: var(--emerald-300);
 
   /* Buttons */
-  --btn-edit-bg:      rgba(16, 185, 129, 0.08);
-  --btn-edit-border:  rgba(16, 185, 129, 0.22);
-  --btn-edit-color:   var(--emerald-300);
-  --btn-delete-bg:    rgba(239, 68, 68, 0.07);
-  --btn-delete-border:rgba(239, 68, 68, 0.25);
+  --btn-edit-bg: rgba(16, 185, 129, 0.08);
+  --btn-edit-border: rgba(16, 185, 129, 0.22);
+  --btn-edit-color: var(--emerald-300);
+  --btn-delete-bg: rgba(239, 68, 68, 0.07);
+  --btn-delete-border: rgba(239, 68, 68, 0.25);
   --btn-delete-color: #f87171;
 
   /* Modal */
-  --modal-bg:     #071210;
+  --modal-bg: #071210;
   --modal-border: #0f3320;
-  --input-bg:     #050e09;
+  --input-bg: #050e09;
   --input-border: #0d2a18;
-  --input-focus:  rgba(16, 185, 129, 0.45);
+  --input-focus: rgba(16, 185, 129, 0.45);
 
   /* Transitions */
   --t-fast: 150ms ease;
   --t-base: 250ms ease;
 }
 
-/* ── Base ───────────────────────────────────────────────────────── */
+/*  Base  */
 html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -124,7 +132,7 @@ body {
   );
 }
 
-/* ── Page Wrapper ───────────────────────────────────────────────── */
+/*  Page Wrapper  */
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -134,7 +142,7 @@ body {
   max-width: 480px;
 }
 
-/* ── Page Header ────────────────────────────────────────────────── */
+/*  Page Header  */
 .page-header {
   display: flex;
   flex-direction: column;
@@ -150,8 +158,8 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(16, 185, 129, 0.10);
-  border: 1px solid rgba(16, 185, 129, 0.20);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   color: var(--emerald-400);
   margin-bottom: 0.25rem;
 }
@@ -170,7 +178,7 @@ body {
   letter-spacing: 0.01em;
 }
 
-/* ── Page Footer ────────────────────────────────────────────────── */
+/*  Page Footer  */
 .page-footer {
   display: inline-flex;
   align-items: center;
@@ -206,27 +214,29 @@ body {
   text-underline-offset: 2px;
 }
 
-
-/* ── Todo Card ──────────────────────────────────────────────────── */
+/*  Todo Card  */
 .todo-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 16px;
   width: 100%;
   max-width: 480px;
-  overflow: hidden;     /* clip the accent bar */
+  overflow: hidden;
   box-shadow:
     0 0 0 1px rgba(16, 185, 129, 0.06) inset,
     0 8px 32px rgba(0, 0, 0, 0.55),
     0 0 60px var(--card-glow);
-  transition: box-shadow var(--t-base), border-color var(--t-base), transform var(--t-base);
+  transition:
+    box-shadow var(--t-base),
+    border-color var(--t-base),
+    transform var(--t-base);
   position: relative;
 }
 
 .todo-card:hover {
   border-color: #1a4d30;
   box-shadow:
-    0 0 0 1px rgba(16, 185, 129, 0.10) inset,
+    0 0 0 1px rgba(16, 185, 129, 0.1) inset,
     0 12px 48px rgba(0, 0, 0, 0.65),
     0 0 80px rgba(16, 185, 129, 0.16);
   transform: translateY(-2px);
@@ -242,8 +252,12 @@ body {
 }
 
 @keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Card inner padding */
@@ -254,7 +268,7 @@ body {
   gap: 1rem;
 }
 
-/* ── Row 1: Header (badges + checkbox) ─────────────────────────── */
+/*  Row 1: Header (badges + checkbox)  */
 .card-header-row {
   display: flex;
   align-items: center;
@@ -270,7 +284,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* ── Badges ─────────────────────────────────────────────────────── */
+/*  Badges  */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -302,33 +316,49 @@ body {
 }
 
 @keyframes status-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.5; transform: scale(0.8); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
 }
 
 /* Priority badges */
-.badge-priority { border-radius: 6px; }
+.badge-priority {
+  border-radius: 6px;
+}
 
 .badge-high {
   color: var(--high-color);
   background: var(--high-bg);
   border-color: var(--high-border);
 }
-.badge-high .badge-dot { background: var(--high-color); box-shadow: 0 0 4px var(--high-color); }
+.badge-high .badge-dot {
+  background: var(--high-color);
+  box-shadow: 0 0 4px var(--high-color);
+}
 
 .badge-medium {
   color: var(--medium-color);
   background: var(--medium-bg);
   border-color: var(--medium-border);
 }
-.badge-medium .badge-dot { background: var(--medium-color); }
+.badge-medium .badge-dot {
+  background: var(--medium-color);
+}
 
 .badge-low {
   color: var(--low-color);
   background: var(--low-bg);
   border-color: var(--low-border);
 }
-.badge-low .badge-dot { background: var(--low-color); }
+.badge-low .badge-dot {
+  background: var(--low-color);
+}
 
 /* Status badges */
 .badge-in-progress {
@@ -349,7 +379,7 @@ body {
   border-color: var(--pending-border);
 }
 
-/* ── Checkbox (top-right) ───────────────────────────────────────── */
+/*  Checkbox (top-right)  */
 .checkbox-wrapper {
   position: relative;
   flex-shrink: 0;
@@ -378,7 +408,10 @@ body {
   border: 2px solid #1a4d30;
   background: rgba(16, 185, 129, 0.04);
   cursor: pointer;
-  transition: background var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+  transition:
+    background var(--t-fast),
+    border-color var(--t-fast),
+    box-shadow var(--t-fast);
   position: relative;
   z-index: 1;
 }
@@ -389,7 +422,9 @@ body {
   color: #fff;
   opacity: 0;
   transform: scale(0.5) rotate(-10deg);
-  transition: opacity var(--t-fast), transform var(--t-fast);
+  transition:
+    opacity var(--t-fast),
+    transform var(--t-fast);
 }
 
 .todo-checkbox:focus-visible + .checkbox-label {
@@ -409,7 +444,7 @@ body {
   transform: scale(1) rotate(0deg);
 }
 
-/* ── Task Title ─────────────────────────────────────────────────── */
+/*  Task Title  */
 .task-title {
   font-size: 1.1rem;
   font-weight: 700;
@@ -426,7 +461,7 @@ body {
   color: var(--txt-muted);
 }
 
-/* ── Description ────────────────────────────────────────────────── */
+/*  Description  */
 .task-description {
   font-size: 0.875rem;
   color: var(--txt-secondary);
@@ -435,14 +470,20 @@ body {
   overflow-wrap: break-word;
 }
 
-/* ── Divider ────────────────────────────────────────────────────── */
+/*  Divider  */
 .card-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #0f3320 30%, #0f3320 70%, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #0f3320 30%,
+    #0f3320 70%,
+    transparent
+  );
   margin: 0 -0.2rem;
 }
 
-/* ── Meta Panel (date + time) ───────────────────────────────────── */
+/*  Meta Panel (date + time)  */
 .meta-panel {
   display: flex;
   align-items: stretch;
@@ -515,11 +556,16 @@ body {
 }
 
 @keyframes now-pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
-/* ── Tags ───────────────────────────────────────────────────────── */
+/*  Tags  */
 .tags-list {
   display: flex;
   flex-wrap: wrap;
@@ -543,16 +589,19 @@ body {
   cursor: default;
   font-family: "SF Mono", "Fira Code", monospace, var(--font);
   letter-spacing: 0.01em;
-  transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+  transition:
+    background var(--t-fast),
+    border-color var(--t-fast),
+    transform var(--t-fast);
 }
 
 .tag:hover {
   background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.30);
+  border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-1px);
 }
 
-/* ── Action Buttons ─────────────────────────────────────────────── */
+/*  Action Buttons  */
 .card-actions {
   display: flex;
   gap: 0.5rem;
@@ -571,8 +620,11 @@ body {
   font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--t-fast), border-color var(--t-fast),
-    transform var(--t-fast), box-shadow var(--t-fast);
+  transition:
+    background var(--t-fast),
+    border-color var(--t-fast),
+    transform var(--t-fast),
+    box-shadow var(--t-fast);
   border: 1px solid transparent;
 }
 
@@ -605,11 +657,11 @@ body {
 
 .btn-delete:hover {
   background: rgba(239, 68, 68, 0.12);
-  border-color: rgba(239, 68, 68, 0.40);
+  border-color: rgba(239, 68, 68, 0.4);
   box-shadow: 0 0 16px rgba(239, 68, 68, 0.12);
 }
 
-/* ── Modal Overlay ──────────────────────────────────────────────── */
+/*  Modal Overlay  */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -627,7 +679,7 @@ body {
   display: none;
 }
 
-/* ── Modal ───────────────────────────────────────────────────────── */
+/*  Modal  */
 .modal {
   background: var(--modal-bg);
   border: 1px solid var(--modal-border);
@@ -660,8 +712,14 @@ body {
 }
 
 @keyframes modal-in {
-  from { opacity: 0; transform: translateY(10px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0)    scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .modal-header {
@@ -678,8 +736,12 @@ body {
   gap: 0.5rem;
 }
 
-.modal-icon { font-size: 1rem; }
-.modal-icon-danger { filter: hue-rotate(0deg); }
+.modal-icon {
+  font-size: 1rem;
+}
+.modal-icon-danger {
+  filter: hue-rotate(0deg);
+}
 
 .modal-title {
   font-size: 0.95rem;
@@ -699,7 +761,10 @@ body {
   background: transparent;
   color: var(--txt-muted);
   cursor: pointer;
-  transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+  transition:
+    background var(--t-fast),
+    color var(--t-fast),
+    border-color var(--t-fast);
 }
 
 .modal-close:hover {
@@ -751,7 +816,9 @@ body {
   border-radius: 8px;
   padding: 0.55rem 0.8rem;
   width: 100%;
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  transition:
+    border-color var(--t-fast),
+    box-shadow var(--t-fast);
   appearance: none;
   -webkit-appearance: none;
 }
@@ -805,7 +872,10 @@ body {
   font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+  transition:
+    background var(--t-fast),
+    border-color var(--t-fast),
+    box-shadow var(--t-fast);
   border: 1px solid transparent;
 }
 
@@ -821,7 +891,7 @@ body {
 }
 
 .modal-btn-cancel:hover {
-  background: rgba(16, 185, 129, 0.10);
+  background: rgba(16, 185, 129, 0.1);
   border-color: #1a4d30;
 }
 
@@ -833,12 +903,12 @@ body {
 }
 
 .modal-btn-save:hover {
-  box-shadow: 0 0 28px rgba(16, 185, 129, 0.40);
+  box-shadow: 0 0 28px rgba(16, 185, 129, 0.4);
   filter: brightness(1.08);
 }
 
 .modal-btn-danger {
-  background: rgba(239, 68, 68, 0.10);
+  background: rgba(239, 68, 68, 0.1);
   border-color: rgba(239, 68, 68, 0.35);
   color: #f87171;
 }
@@ -848,13 +918,13 @@ body {
   border-color: rgba(239, 68, 68, 0.55);
 }
 
-/* ── Focus Visible global ───────────────────────────────────────── */
+/*  Focus Visible global  */
 :focus-visible {
   outline: 2px solid var(--emerald-400);
   outline-offset: 2px;
 }
 
-/* ── Responsive ─────────────────────────────────────────────────── */
+/*  Responsive  */
 @media (max-width: 520px) {
   body {
     align-items: flex-start;
@@ -892,16 +962,29 @@ body {
   }
 }
 
-/* ── Print ──────────────────────────────────────────────────────── */
+/*  Print  */
 @media print {
-  body { background: white; color: black; }
-  .todo-card { border: 1px solid #ccc; background: white; box-shadow: none; }
-  .card-actions, .card-accent-bar, .modal-overlay { display: none; }
+  body {
+    background: white;
+    color: black;
+  }
+  .todo-card {
+    border: 1px solid #ccc;
+    background: white;
+    box-shadow: none;
+  }
+  .card-actions,
+  .card-accent-bar,
+  .modal-overlay {
+    display: none;
+  }
 }
 
-/* ── Reduced Motion ─────────────────────────────────────────────── */
+/*  Reduced Motion  */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
